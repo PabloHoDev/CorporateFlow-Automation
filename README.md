@@ -243,22 +243,39 @@ Ao final do processamento serão gerados:
 
 ## 📄 Exemplo de Log
 
-...
+```text
 
----
+20:10:01 - Backup iniciado
+
+20:10:04 - Backup concluído
+
+20:10:05 - Arquivo carregado
+
+20:10:12 - 1258 registros processados
+
+20:10:15 - Execução finalizada
+```
 
 ## ✅ Testes
 
-...
+O projeto possui testes automatizados utilizando pytest.
 
----
+Para executar:
+
+```bash
+pytest
+```
 
 ## 🔮 Roadmap
 
-...
-
----
+- Interface Web
+- API REST
+- Processamento paralelo
+- Banco de dados
+- Dashboard de monitoramento
+- Docker
+- Integração com filas de mensagens
 
 ## 📜 Licença
 
-...
+Projeto desenvolvido para fins educacionais e demonstração de arquitetura de software e automação corporativa.
