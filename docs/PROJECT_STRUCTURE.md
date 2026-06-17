@@ -8,7 +8,7 @@ Definir a organização oficial do repositório do **CorporateFlow Automation**,
 
 ---
 
-# Estrutura Geral
+# Estrutura Final do Projeto - CorporateFlow Automation
 
 ```text
 CorporateFlow/
@@ -17,26 +17,46 @@ CorporateFlow/
 │   └── workflows/
 │       └── ci.yml
 │
+├── assets/
+│   ├── diagrams/
+│   ├── images/
+│   └── gifs/
+│
 ├── config/
 │   ├── config.yaml
 │   └── logging.yaml
 │
+├── data/
+│   ├── input/
+│   ├── output/
+│   ├── backups/
+│   └── logs/
+│
 ├── docs/
 │   ├── ARCHITECTURE.md
+│   ├── ARCHITECTURAL_CONVENTIONS.md
+│   ├── PROJECT_STRUCTURE.md
+│   ├── CLASS_DESIGN.md
+│   ├── UML.md
+│   ├── INTERFACES.md
+│   ├── PIPELINE.md
+│   ├── TEST_STRATEGY.md
 │   ├── DEVELOPMENT.md
 │   ├── ROADMAP.md
 │   ├── CONTRIBUTING.md
-│   ├── PROJECT_STRUCTURE.md
 │   └── adr/
-│       └── ADR-001-arquitetura-orientada-a-servicos.md
+│       ├── ADR-001-arquitetura-orientada-a-servicos.md
+│       ├── ADR-002-estrutura-de-diretorios.md
+│       └── ADR-003-estrategia-de-testes.md
 │
-├── input/
+├── examples/
+│   ├── sample.xlsx
+│   ├── sample.csv
+│   └── sample_config.yaml
 │
-├── output/
-│
-├── backups/
-│
-├── logs/
+├── scripts/
+│   ├── create_demo_data.py
+│   └── clean_output.py
 │
 ├── src/
 │   │
@@ -64,32 +84,51 @@ CorporateFlow/
 │   │   └── city_normalizer.py
 │   │
 │   ├── models/
+│   │   ├── input_file.py
 │   │   ├── processing_result.py
-│   │   ├── report.py
-│   │   └── input_file.py
+│   │   └── report.py
 │   │
 │   ├── interfaces/
-│   │   ├── validator.py
-│   │   ├── normalizer.py
-│   │   └── service.py
+│   │   ├── service_protocol.py
+│   │   ├── validator_protocol.py
+│   │   └── normalizer_protocol.py
 │   │
 │   ├── exceptions/
 │   │   ├── configuration_error.py
-│   │   ├── file_validation_error.py
-│   │   └── business_rule_error.py
+│   │   ├── business_rule_error.py
+│   │   └── file_validation_error.py
+│   │
+│   ├── enums/
+│   │   ├── execution_status.py
+│   │   └── log_level.py
+│   │
+│   ├── constants/
+│   │   ├── file_types.py
+│   │   ├── messages.py
+│   │   └── paths.py
 │   │
 │   └── utils/
-│       ├── paths.py
 │       ├── filesystem.py
-│       └── helpers.py
+│       ├── helpers.py
+│       └── paths.py
 │
 ├── tests/
-│   ├── core/
-│   ├── services/
-│   ├── validators/
-│   ├── normalizers/
-│   ├── models/
-│   └── integration/
+│   │
+│   ├── unit/
+│   │   ├── core/
+│   │   ├── services/
+│   │   ├── validators/
+│   │   ├── normalizers/
+│   │   ├── models/
+│   │   └── utils/
+│   │
+│   ├── integration/
+│   │
+│   └── fixtures/
+│       ├── sample.xlsx
+│       ├── sample.csv
+│       ├── invalid.xlsx
+│       └── config.yaml
 │
 ├── .editorconfig
 ├── .gitignore
@@ -100,7 +139,6 @@ CorporateFlow/
 └── README.md
 ```
 
----
 
 # Responsabilidades
 
