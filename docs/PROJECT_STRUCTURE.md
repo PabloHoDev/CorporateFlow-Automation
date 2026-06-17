@@ -87,7 +87,8 @@ CorporateFlow/
 │   ├── models/
 │   │   ├── input_file.py
 │   │   ├── processing_result.py
-│   │   └── report.py
+│   │   |── report.py
+|   |   └── app_config.py
 │   │
 │   ├── interfaces/
 │   │   ├── service_protocol.py
