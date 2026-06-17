@@ -44,6 +44,7 @@ CorporateFlow/
 │   ├── DEVELOPMENT.md
 │   ├── ROADMAP.md
 │   ├── CONTRIBUTING.md
+|   ├── class_desing
 │   └── adr/
 │       ├── ADR-001-arquitetura-orientada-a-servicos.md
 │       ├── ADR-002-estrutura-de-diretorios.md
@@ -62,7 +63,7 @@ CorporateFlow/
 │   │
 │   ├── core/
 │   │   ├── orchestrator.py
-│   │   ├── pipeline.py
+│   │   |
 │   │   └── execution_context.py
 │   │
 │   ├── config/
