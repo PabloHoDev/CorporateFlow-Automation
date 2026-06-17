@@ -105,7 +105,7 @@ CorporateFlow/
 │   ├── constants/
 │   │   ├── file_types.py
 │   │   ├── messages.py
-│   │   └── paths.py
+│   │   
 │   │
 │   └── utils/
 │       ├── filesystem.py
