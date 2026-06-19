@@ -55,7 +55,7 @@ Ela deve atuar apenas como um contêiner de estado.
 
 | Atributo           | Tipo                   | Descrição                                 |
 | ------------------ | ---------------------- | ----------------------------------------- |
-| configuration      | ConfigurationManager   | Configuração carregada da aplicação       |
+| configuration      | AppConfig  | Configuração carregada da aplicação       |
 | logger             | LogService             | Instância utilizada para registro de logs |
 | input_files        | list[InputFile]        | Arquivos identificados para processamento |
 | processing_results | list[ProcessingResult] | Resultados produzidos durante a execução  |
@@ -115,7 +115,7 @@ Obtém um valor previamente armazenado na coleção de metadados.
 
 A classe poderá manter referências para:
 
-* ConfigurationManager
+* AppConfig
 * LogService
 * InputFile
 * ProcessingResult
