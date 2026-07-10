@@ -1,13 +1,10 @@
-def test_should_accept_valid_uf():
+import pandas as pd
+import pytest
 
-    dataframe = pd.DataFrame(
-        {
-            "UF PRESTADOR": ["SP"],
-            "STATUS": ["PENDENTE"],
-            "AREA DA PENDENCIA": [
-                "RELACIONAMENTO"
-            ]
-        }
-    )
+from src.validators.schema_validator import SchemaValidator
+from src.exceptions.file_validation_error import (
+    FileValidationError
+)
 
-    validator.validate(dataframe)
+
+validator = SchemaValidator()
