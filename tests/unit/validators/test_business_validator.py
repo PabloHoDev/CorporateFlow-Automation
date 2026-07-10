@@ -1,18 +1,13 @@
-def test_should_accept_valid_schema():
+import pandas as pd
+import pytest
 
-    dataframe = pd.DataFrame(
-        columns=[
-            "USUARIO",
-            "PROCEDIMENTO",
-            "NOME DO PRESTADOR",
-            "UF PRESTADOR",
-            "CIDADE PRESTADOR",
-            "VALOR DEPOSITO",
-            "DATA DEPOSITO",
-            "OBRIGACAO",
-            "AREA DA PENDENCIA",
-            "STATUS"
-        ]
-    )
+from src.validators.business_validator import (
+    BusinessValidator
+)
 
-    validator.validate(dataframe)
+from src.exceptions.business_rule_error import (
+    BusinessRuleError
+)
+
+
+validator = BusinessValidator()
