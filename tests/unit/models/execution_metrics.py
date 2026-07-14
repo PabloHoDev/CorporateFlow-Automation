@@ -1,52 +1,105 @@
-from dataclasses import dataclass, field
-from datetime import datetime
-from typing import Optional
+from datetime import datetime, timedelta
+
+from src.models.execution_metrics import ExecutionMetrics
 
 
-@dataclass
-class ExecutionMetrics:
+def test_execution_metrics_creation():
     """
-    Representa as métricas coletadas durante uma execução.
+    Deve criar métricas com valores iniciais corretos.
     """
 
-    start_time: datetime = field(
-        default_factory=datetime.now
+    metrics = ExecutionMetrics()
+
+
+    assert isinstance(
+        metrics.start_time,
+        datetime
     )
 
-    end_time: Optional[datetime] = None
+    assert metrics.end_time is None
 
-    files_processed: int = 0
+    assert metrics.files_processed == 0
 
-    records_read: int = 0
+    assert metrics.records_read == 0
 
-    records_created: int = 0
+    assert metrics.records_created == 0
 
-    records_updated: int = 0
+    assert metrics.records_updated == 0
 
-    records_skipped: int = 0
+    assert metrics.records_skipped == 0
 
-    errors_count: int = 0
-
-
-    def finish(self) -> None:
-        """
-        Finaliza a execução registrando
-        o horário de término.
-        """
-
-        self.end_time = datetime.now()
+    assert metrics.errors_count == 0
 
 
-    @property
-    def execution_time_seconds(self) -> float:
-        """
-        Retorna o tempo total de execução em segundos.
-        """
 
-        if not self.end_time:
-            return 0.0
+def test_execution_metrics_finish():
+    """
+    Deve registrar o fim da execução.
+    """
+
+    metrics = ExecutionMetrics()
 
 
-        return (
-            self.end_time - self.start_time
-        ).total_seconds()
+    metrics.finish()
+
+
+    assert metrics.end_time is not None
+
+    assert isinstance(
+        metrics.end_time,
+        datetime
+    )
+
+
+
+def test_execution_time_seconds():
+    """
+    Deve calcular corretamente o tempo de execução.
+    """
+
+    metrics = ExecutionMetrics()
+
+
+    metrics.start_time = (
+        datetime.now()
+        - timedelta(seconds=10)
+    )
+
+
+    metrics.finish()
+
+
+    assert (
+        metrics.execution_time_seconds >= 10
+    )
+
+
+
+def test_execution_metrics_counters():
+    """
+    Deve permitir atualizar os contadores.
+    """
+
+    metrics = ExecutionMetrics()
+
+
+    metrics.files_processed = 3
+
+    metrics.records_read = 1000
+
+    metrics.records_created = 200
+
+    metrics.records_updated = 50
+
+    metrics.records_skipped = 750
+
+
+    assert metrics.files_processed == 3
+
+    assert metrics.records_read == 1000
+
+    assert metrics.records_created == 200
+
+    assert metrics.records_updated == 50
+
+    assert metrics.records_skipped == 750
