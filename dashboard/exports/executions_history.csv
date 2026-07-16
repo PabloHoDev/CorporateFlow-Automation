@@ -1,0 +1,4 @@
+exemplo
+timestamp,execution_time,records_read,records_created,records_updated,errors
+2026-07-16 08:00:00,125,5000,200,15,0
+2026-07-17 08:00:00,142,5100,210,22,1
