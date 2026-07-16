@@ -1,0 +1,4 @@
+exemplo
+timestamp,severity,title,source
+2026-07-16 08:00:00,WARNING,Execução lenta,MonitoringService
+2026-07-17 08:00:00,CRITICAL,Health Check falhou,HealthValidator
