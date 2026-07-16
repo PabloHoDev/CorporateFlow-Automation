@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+
+  corporateflow:
+
+    container_name: corporateflow-app
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    env_file:
+      - .env
+
+    volumes:
+
+      # Arquivos de entrada
+      - ./input:/app/input
+
+      # Arquivos processados
+      - ./output:/app/output
+
+      # Logs da aplicação
+      - ./logs:/app/logs
+
+      # Backups gerados
+      - ./backups:/app/backups
+
+    restart: unless-stopped
+
+    command:
+      python main.py
