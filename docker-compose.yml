@@ -15,17 +15,28 @@ services:
 
     volumes:
 
-      # Arquivos de entrada
       - ./input:/app/input
-
-      # Arquivos processados
       - ./output:/app/output
-
-      # Logs da aplicação
       - ./logs:/app/logs
-
-      # Backups gerados
       - ./backups:/app/backups
+
+    healthcheck:
+
+      test:
+        [
+          "CMD",
+          "python",
+          "scripts/healthcheck.py"
+        ]
+
+      interval: 30s
+
+      timeout: 10s
+
+      retries: 3
+
+      start_period: 20s
+
 
     restart: unless-stopped
 
