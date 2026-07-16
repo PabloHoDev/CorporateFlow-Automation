@@ -18,6 +18,7 @@ from src.normalizers.city_normalizer import CityNormalizer
 
 
 def main():
+    
 
     configuration_manager = ConfigurationManager(
         Path("config/config.yaml")
